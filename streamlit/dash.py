@@ -19,7 +19,7 @@ This ***data product*** will help the users to have an estimated success rate of
 ''')
 st.success('Current dashboard is focused on the exploratory data analysis')
 
-color_palette = ['#196A47' , '#f56343']
+color_palette = ['#fca311' , '#e5e5e5'] #[s,f]
 df_all = pd.read_pickle('processed.pickle')
 
 df_success = df_all[df_all['state'] == 'successful']
@@ -46,7 +46,7 @@ df_plot_c['successful'] = df_plot_c['successful'] / df_plot_c['sum'] * 100
 df_plot_c['failed'] = df_plot_c['failed'] / df_plot_c['sum'] * 100
 
 df_plot_c.drop(labels='sum', axis = 1, inplace= True)
-plot3 = df_plot_c.hvplot(kind = 'bar', stacked = True, color = ['#196A47' , '#f56343'], 
+plot3 = df_plot_c.hvplot(kind = 'bar', stacked = True, color = color_palette, 
                  bar_width = 0.5, height = 400, title = 'Success rate per category (percentage)').opts(line_color = 'white', xrotation = 90)
 
 
